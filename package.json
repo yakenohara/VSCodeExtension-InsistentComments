@@ -17,9 +17,30 @@
 		"commands": [
 			{
 				"command": "insistent-comments.helloWorld",
-				"title": "Hello World"
+				"title": "Insistent Comments"
 			}
-		]
+		],
+		"configuration":{
+			"type": "object",
+			"title": "insistentComments",
+			"properties": {
+				"insistentComments.spaceMargin":{
+					"type": "number",
+					"default": 1,
+					"description": "Number of spaces right after \"/*\" and right before \"*/\""
+				},
+				"insistentComments.marginCharacterPredicting":{
+					"type": "boolean",
+					"default": true,
+					"description": "Margin character predicting"
+				},
+				"insistentComments.regexStrForMarginCharJudge":{
+					"type": "string",
+					"default": "[\\x21-\\x2F\\x3A-\\x40\\x5B-\\x60\\x7B-\\x7E]",
+					"description": "Regular expression string to judge margin character or not"
+				}
+			}
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
