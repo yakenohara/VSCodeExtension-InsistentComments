@@ -1,3 +1,9 @@
+# Usage
+
+![](assets/images/all-line.gif)  
+
+![](assets/images/selected.gif)  
+
 ## Settings
 
 // Margin character predicting
