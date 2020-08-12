@@ -1,4 +1,5 @@
 {
+	"publisher":"YakenoharaShinnosuke",
 	"name": "insistent-comments",
 	"displayName": "Insistent Comments",
 	"description": "Make all selected lines a block comment",
