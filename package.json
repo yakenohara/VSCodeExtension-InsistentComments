@@ -1,10 +1,10 @@
 {
-	"publisher":"YakenoharaShinnosuke",
+	"publisher": "YakenoharaShinnosuke",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/yakenohara/VSCodeExtension-InsistentComments.git"
 	},
-	"icon": "./assets/images/icon.png",
+	"icon": "assets/images/icon.png",
 	"name": "insistent-comments",
 	"displayName": "Insistent Comments",
 	"description": "Make all selected lines a block comment",
@@ -26,21 +26,21 @@
 				"title": "Insistent Comments"
 			}
 		],
-		"configuration":{
+		"configuration": {
 			"type": "object",
 			"title": "insistentComments",
 			"properties": {
-				"insistentComments.spaceMargin":{
+				"insistentComments.spaceMargin": {
 					"type": "number",
 					"default": 1,
 					"description": "Number of spaces right after \"/*\" and right before \"*/\""
 				},
-				"insistentComments.marginCharacterPredicting":{
+				"insistentComments.marginCharacterPredicting": {
 					"type": "boolean",
 					"default": true,
 					"description": "Margin character predicting"
 				},
-				"insistentComments.regexStrForMarginCharJudge":{
+				"insistentComments.regexStrForMarginCharJudge": {
 					"type": "string",
 					"default": "[\\x21-\\x2F\\x3A-\\x40\\x5B-\\x60\\x7B-\\x7E]",
 					"description": "Regular expression string to judge margin character or not"
