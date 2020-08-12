@@ -8,3 +8,16 @@
 
 // Number of spaces right after "/*" and right before "*/"
 "insistentComments.spaceMargin": 1,
+
+## When you cloned this repository
+
+### Requirements
+
+ - Node.js  
+
+### Set up
+
+```
+npm install
+```
+
