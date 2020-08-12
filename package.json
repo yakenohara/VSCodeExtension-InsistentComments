@@ -1,9 +1,14 @@
 {
 	"publisher":"YakenoharaShinnosuke",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/yakenohara/VSCodeExtension-InsistentComments.git"
+	},
+	"icon": "./assets/images/icon.png",
 	"name": "insistent-comments",
 	"displayName": "Insistent Comments",
 	"description": "Make all selected lines a block comment",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"engines": {
 		"vscode": "^1.47.0"
 	},
