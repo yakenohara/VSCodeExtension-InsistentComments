@@ -28,7 +28,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     // Use the console to output diagnostic information (console.log) and errors (console.error)
     // This line of code will only be executed once when your extension is activated
-    console.log('Congratulations, your extension "test" is now active!');
+    // console.log('Congratulations, your extension "test" is now active!');
 
     // The command has been defined in the package.json file
     // Now provide the implementation of the command with registerCommand
@@ -46,17 +46,21 @@ export function activate(context: vscode.ExtensionContext) {
 		if(typeof obj_numOfSpace !== 'number'){ // number 型ではない場合
 			let str_wrn = `Unknown variable type \`${(typeof obj_numOfSpace)}\` specified to ` + STR_EXTENSION_NAME + '.' + STR_PROP_NAME_SPACE_MARGIN;
             console.warn(str_wrn);
+            vscode.window.showWarningMessage(str_wrn);
             int_numOfSpace = INT_DEFAULT_NUM_OF_SPACE;
             
 		}else if(obj_numOfSpace < 0){ // 指定幅が マイナス値の場合
 			let str_wrn = `Invalid number \`${(obj_numOfSpace.toString())}\` specified to ` + STR_EXTENSION_NAME + '.' + STR_PROP_NAME_SPACE_MARGIN;
             console.warn(str_wrn);
+            vscode.window.showWarningMessage(str_wrn);
             int_numOfSpace = INT_DEFAULT_NUM_OF_SPACE;
         
         }else{
-            int_numOfSpace = parseInt(obj_numOfSpace.toString()); //todo 小数のときは整数にする
+            int_numOfSpace = parseInt(obj_numOfSpace.toString());
             if(obj_numOfSpace - int_numOfSpace != 0){ // 小数が存在した場合
-                console.warn(`fraction number \`${(obj_numOfSpace.toString())}\` specified to .a`); //todo property name
+                let str_wrn =`fraction number \`${(obj_numOfSpace.toString())}\` specified to ` + STR_EXTENSION_NAME + '.' + STR_PROP_NAME_SPACE_MARGIN; 
+                console.warn(str_wrn);
+                vscode.window.showWarningMessage(str_wrn);
             }
 		}
 
@@ -65,7 +69,8 @@ export function activate(context: vscode.ExtensionContext) {
 
 		if(typeof obj_marginCharPredicting !== 'boolean'){ // number 型ではない場合
 			let str_wrn = `Unknown variable type \`${(typeof obj_marginCharPredicting)}\` specified to ` + STR_EXTENSION_NAME + '.' + STR_PROP_NAME_MARGIN_CHAR_PREDICTING;
-			console.warn(str_wrn);
+            console.warn(str_wrn);
+            vscode.window.showWarningMessage(str_wrn);
 			bl_marginCharPredicting = BL_DEFAULT_MARGIN_CHAR_PREDICTING;
 		}else{
 			bl_marginCharPredicting = obj_marginCharPredicting;
@@ -77,7 +82,8 @@ export function activate(context: vscode.ExtensionContext) {
 
 		if(typeof obj_regexStrForMarginCharJudge !== 'string'){ // string 型ではない場合
 			let str_wrn = `Unknown variable type \`${(typeof obj_regexStrForMarginCharJudge)}\` specified to ` + STR_EXTENSION_NAME + '.' + STR_PROP_NAME_REGEX_STR_FOR_MARGIN_CHAR_JUDGE;
-			console.warn(str_wrn);
+            console.warn(str_wrn);
+            vscode.window.showWarningMessage(str_wrn);
 			str_regexStrForMarginCharJudge = STR_DEFAULT_REGEX_STR_FOR_MARGIN_CHAR_JUDGE;
 		}else{
 			str_regexStrForMarginCharJudge = obj_regexStrForMarginCharJudge;
@@ -88,7 +94,8 @@ export function activate(context: vscode.ExtensionContext) {
 		}catch (e){
 			console.warn(e);
 			let str_wrn = `Invalid RegExp string \`${(str_regexStrForMarginCharJudge)}\` specified to ` + STR_EXTENSION_NAME + '.' + STR_PROP_NAME_REGEX_STR_FOR_MARGIN_CHAR_JUDGE;
-			console.warn(str_wrn);
+            console.warn(str_wrn);
+            vscode.window.showWarningMessage(str_wrn);
 			obj_regexForMarginCharJudge = new RegExp(STR_DEFAULT_REGEX_STR_FOR_MARGIN_CHAR_JUDGE);
 		}
 		
@@ -139,7 +146,9 @@ export function activate(context: vscode.ExtensionContext) {
 
                 // 改行を含んでいないかどうかチェック
                 if(!(obj_tmpSelection.isSingleLine)){ // 改行を含んでいる場合
-                    console.error('Multi selection includes line separator character'); //todo <-表示されない
+                    let str_err = 'Multi selection includes line separator character';
+                    console.error(str_err);
+                    vscode.window.showErrorMessage(str_err);
                     return;
                 }
 
@@ -156,7 +165,9 @@ export function activate(context: vscode.ExtensionContext) {
         // -----------------------------------------------------------</Comment out 対象となる 行毎の選択範囲リストを作る>
 
         if(0 == objarr_toCommentOut.length){ //変換対象が存在しない
-            console.error('Selection not found');
+            let str_err = 'Selection not found';
+            console.error(str_err);
+            vscode.window.showErrorMessage(str_err);
             return;
         }
 
